@@ -23,10 +23,13 @@ class Citas {
 
 class UI {
 
+   // Elimina el Html previo
+
+
     imprimirAlerta(mensaje, tipo) {
         const divMensaje = document.createElement ('div');
         divMensaje.classList.add ('text-center', 'alert', 'd-block', 'col-12');
-    
+        
     // Crear clase en base al tipo de error
     if (tipo === 'error') {
         divMensaje.classList.add('alert-danger');
@@ -47,7 +50,10 @@ class UI {
     }
 
      imprimirCitas({citas}) {
-         citas.forEach( cita => {
+         
+        this.limpiarHTML();
+       
+        citas.forEach( cita => {
             const { mascota, propietario, telefono, fecha, hora, sintomas, id} = cita;
 
             const divCita = document.createElement('div');
@@ -109,6 +115,14 @@ class UI {
             contenedorCitas.appendChild(divCita);
          })
      }
+
+     limpiarHTML() {
+        while( contenedorCitas.firstChild ) {
+            contenedorCitas.removeChild(contenedorCitas.firstChild);
+        }
+
+       
+    }
 
 }
 
