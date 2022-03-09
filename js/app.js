@@ -43,9 +43,37 @@ class UI {
     setTimeout( () => {
         divMensaje.remove();
     }, 5000);
-}
 
-    
+    }
+
+     imprimirCitas(citas) {
+         citas.forEach(cita => {
+            const { mascota, propietario, telefono, fecha, hora, sintomas, id} = cita;
+
+            const divCita = document.createElement('div');
+            divCita.classList.add('cita', 'p-3');
+            divCita.dataset.id = id;
+
+            //Scripting de los elementos de la cita
+
+            const mascotaParrafo = document.createElement('h2');
+            mascotaParrafo.classList.add('card-title', 'font-weight-bolder');
+            mascotaParrafo.textContent = mascota;
+
+
+            const propietarioParrafo = document.createElement('p');
+            propietarioParrafo.innerHTML = `
+            
+            <span class = "font-weight-bolder"> Propietario: </span> ${propietario}
+            
+            `;
+
+            // Agregar los parrafos al Divcita
+            divCita.appendChild(mascotaParrafo); 
+            divCita.appendChild(propietarioParrafo); 
+            contenedorCitas.appendChild(divCita);
+         })
+     }
 
 }
 
@@ -96,7 +124,7 @@ function nuevaCita (e) {
     administrarCitas.agregarCita([...citaObj]);
 
     //Reiniciar el objeto para la Validacion
-        reiniciarObjeto();
+    reiniciarObjeto();
 
     //Mostrar Citas en el Html
 
