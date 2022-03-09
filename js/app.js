@@ -141,4 +141,4 @@ function reiniciarObjeto() {
 
 }
 
-//Volvemos a la normalidad ? 
+//Yes here we goo
