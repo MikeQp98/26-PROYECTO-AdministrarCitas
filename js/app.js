@@ -46,8 +46,8 @@ class UI {
 
     }
 
-     imprimirCitas(citas) {
-         citas.forEach(cita => {
+     imprimirCitas({citas}) {
+         citas.forEach( cita => {
             const { mascota, propietario, telefono, fecha, hora, sintomas, id} = cita;
 
             const divCita = document.createElement('div');
@@ -121,14 +121,15 @@ function nuevaCita (e) {
 
     citaObj.id = Date.now();
 
-    administrarCitas.agregarCita([...citaObj]);
+    administrarCitas.agregarCita({...citaObj});
 
     //Reiniciar el objeto para la Validacion
     reiniciarObjeto();
 
     //Mostrar Citas en el Html
-
     formulario.reset();
+
+    ui.imprimirCitas(administrarCitas);
 }
 
 function reiniciarObjeto() {
@@ -141,4 +142,4 @@ function reiniciarObjeto() {
 
 }
 
-//Yes here we goo
+// Erroes solucionados
