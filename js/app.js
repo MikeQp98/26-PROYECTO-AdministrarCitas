@@ -68,9 +68,44 @@ class UI {
             
             `;
 
+
+            const telefonoParrafo = document.createElement('p');
+            telefonoParrafo.innerHTML = `
+            
+            <span class = "font-weight-bolder"> telefono: </span> ${telefono}
+            
+            `;
+
+            const fechaParrafo = document.createElement('p');
+            fechaParrafo.innerHTML = `
+            
+            <span class = "font-weight-bolder"> Fecha: </span> ${fecha}
+            
+            `;
+
+            const horaParrafo = document.createElement('p');
+            horaParrafo.innerHTML = `
+            
+            <span class = "font-weight-bolder"> Hora: </span> ${hora}
+            
+            `;
+
+            const sintomasParrafo = document.createElement('p');
+            sintomasParrafo.innerHTML = `
+            
+            <span class = "font-weight-bolder"> Sintomas: </span> ${sintomas}
+            
+            `;
+            
             // Agregar los parrafos al Divcita
             divCita.appendChild(mascotaParrafo); 
             divCita.appendChild(propietarioParrafo); 
+            divCita.appendChild(telefonoParrafo); 
+            divCita.appendChild(fechaParrafo); 
+            divCita.appendChild(horaParrafo); 
+            divCita.appendChild(sintomasParrafo);
+
+            //Agregas citas al Html
             contenedorCitas.appendChild(divCita);
          })
      }
