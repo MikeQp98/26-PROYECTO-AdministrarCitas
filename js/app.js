@@ -140,3 +140,5 @@ function reiniciarObjeto() {
     citaObj.sintomas = '';
 
 }
+
+//Version mas reciente 
