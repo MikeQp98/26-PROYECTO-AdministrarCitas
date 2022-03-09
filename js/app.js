@@ -141,4 +141,4 @@ function reiniciarObjeto() {
 
 }
 
-//Version mas reciente cafa
+//Volvemos a la normalidad ? 
