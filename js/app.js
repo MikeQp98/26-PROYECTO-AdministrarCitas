@@ -196,18 +196,15 @@ function nuevaCita (e) {
 
     //editando citas
     if (editando) {
-        ui.imprimirAlerta('Editado Correctamente');
-
-        // Pasar el objeto de la cita
+        ui.imprimirAlerta("Editado Correctamente");
         formulario.querySelector('button[type="submit"]').textContent = ' Crear Cita ';
         editando = false;
 
     }else {
         citaObj.id = Date.now();
         administrarCitas.agregarCita({...citaObj});
-
         //Mensaje de Agregado Correctamente
-        ui.imprimirAlerta('Se agrego Correctamente')
+        ui.imprimirAlerta("Se agrego Correctamente");
     }
 
     //Reiniciar el objeto para la Validacion
