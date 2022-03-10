@@ -17,12 +17,14 @@ class Citas {
 
     agregarCita(cita) {
         this.citas = [...this.citas, cita];
-
-       
     }
 
     eliminarCita(id) {
         this.citas = this.citas.filter(cita => cita.id !== id)
+    }
+
+    editarCita(citaActualizada) {
+        this.citas = this.citas.map( cita => cita.id === citaActualizada.id ? citaActualizada : cita )
     }
 }
 
@@ -39,7 +41,7 @@ class UI {
     if (tipo === 'error') {
         divMensaje.classList.add('alert-danger');
     } else {
-        divMensaje.classList.add('alert-succes');
+        divMensaje.classList.add('alert-success');
 
     }
     //Mensaje de Erro
@@ -196,7 +198,11 @@ function nuevaCita (e) {
 
     //editando citas
     if (editando) {
-        ui.imprimirAlerta("Editado Correctamente");
+        ui.imprimirAlerta("Editado Correctamente" , 'alert-success');
+
+        //Pasar el objeto de la cita a edicion
+        administrarCitas.editarCita({...citaObj});
+
         formulario.querySelector('button[type="submit"]').textContent = ' Crear Cita ';
         editando = false;
 
@@ -204,7 +210,7 @@ function nuevaCita (e) {
         citaObj.id = Date.now();
         administrarCitas.agregarCita({...citaObj});
         //Mensaje de Agregado Correctamente
-        ui.imprimirAlerta("Se agrego Correctamente");
+        ui.imprimirAlerta("Se agrego Correctamente", 'alert-success');
     }
 
     //Reiniciar el objeto para la Validacion
